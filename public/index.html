@@ -12,20 +12,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form id="chat">
-        <input type="text" name="username" placeholder="Digite seu usário">
-        <div class="messages">
-
+    <section class="container">
+        <div class="principal" >
+            <h1>Chat de Sistemas Distribuidos</h1>
+            <input type="text" name="username" placeholder="Digite seu usário">
+            <button class="btnUser">Entrar</button>
         </div>
-        <input type="text" name="message" placeholder="Digite sua mensagem">
-        <button type="submit">Enviar</button>
-    </form>
+
+        <form id="chat" class="chat">
+            <div class="messages"></div>
+            
+            <div class="texteInput">
+                <input class="input" type="text" name="message" placeholder="Digite sua mensagem">
+                <button class="bntInput" type="submit">
+                    <img src="./AiOutlineSend.svg" alt="">
+                </button>
+            </div>
+        </form>
+    </section>
 
     <script type="text/javascript">
         var socket = io('http://localhost:3000');
 
         function renderMessage(message){
-            $('.messages').append('<div class="message"><strong>'+ message.author +'</strong>:'+ message.message +'</div>')
+            $('.messages').append('<div class="message"><strong>' + message.author + '</strong>: ' + message.message + ' </div>')
         }
 
         socket.on('previousMessage', function(messages){
@@ -39,7 +49,7 @@
         })
 
         $('#chat').submit(function(event){
-            event.preventDefault();
+            event.preventDefault(); 
 
             var author = $('input[name=username]').val();
             var message = $('input[name=message]').val();
@@ -53,6 +63,19 @@
                 socket.emit('sendMessage', messageObject);
             }
         });
+        
+
+
+
+        const page = document.querySelector('.principal')
+        const chat = document.querySelector('.chat')
+        const btn = document.querySelector('.btnUser')
+
+
+        btn.addEventListener('click', ()=>{
+            page.classList.add('active');
+            chat.classList.add('active');
+        })
     </script>
 </body>
 </html>

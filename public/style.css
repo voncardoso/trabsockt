@@ -7,38 +7,123 @@ html, body {
     padding: 0;
     box-sizing: border-box;
   }
+
+  button{
+    cursor: pointer;
+  }
+
+  .container{
+    height: 100vh;
+    display: flex;
+  }
   
-  #chat {
+  .chat.active {
     height: 100%;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
-  
+
+  .chat{
+    display: none;
+  }
+
+
+  .input{
+    max-width: 600px;
+    margin-right: 20px;
+  }
+
+  .bntInput{
+    width: 50px;
+    align-self: center;
+    align-items: center;
+  }
+
   input {
-    width: 600px;
+    max-width: 400px;
+    width: 100%;
     border: 1px solid #ddd;
     height: 50px;
-    padding: 0 20px;
+    padding: 0 10px;
+    border-radius: 20px;
     font-size: 14px;
+    margin-top: 32px;
+    margin-bottom: 16px;
   }
   
-  button {
-    width: 600px;
+  .btnUser{
+    border-radius: 20px;
+    max-width: 400px;
+    width: 100%;
     height: 50px;
+    border: none;
     font-size: 14px;
-    background: #069;
+    background: #0FC2C0;
     text-align: center;
     line-height: 50px;
+    font-size: 16px;
+    color: #fff;
+    font-size: 22px;
     font-weight: bold;
-    color: #FFF;
+
+  }
+
+  .texteInput{
+    display: flex;
+    width: 600px;
+    height: 50px;
+    align-items: center;
+    background: white;
+  }
+  .bntInput {
     margin-top: 10px;
+    display: flex;
+    background: none;
+    height: 50px;
+    border: none;
+  }
+
+  .bntInput img{
+    align-self: center;
+    
   }
   
   .messages {
     width: 600px;
-    height: 400px;
+    height: 600px;
     margin: 20px 0;
-    border: 1px solid #ddd;
+    border: 0.5px solid #ddd;
     padding: 20px;
+    border-radius: 20px;
+  }
+
+  .principal{
+    display: flex;
+    align-self: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 400px;
+    display: block;
+  }
+
+  .principal.active{
+    display: none;
+  }
+
+
+
+  h1{
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 0px;
+    font-size: 30px;
+    color: #0FC2C0;
+  }
+
+  .strong{
+    display: block;
+    color: rgb(136, 136, 136);
+  }
