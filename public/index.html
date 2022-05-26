@@ -33,9 +33,11 @@
 
     <script type="text/javascript">
         var socket = io('http://localhost:3000');
-
+        var name = [];
+        
         function renderMessage(message){
             $('.messages').append('<div class="message"><strong>' + message.author + '</strong>: ' + message.message + ' </div>')
+           
         }
 
         socket.on('previousMessage', function(messages){
@@ -53,7 +55,6 @@
 
             var author = $('input[name=username]').val();
             var message = $('input[name=message]').val();
-
             if(author.length && message.length){
                 var messageObject = {
                     author: author,
@@ -61,21 +62,27 @@
                 };
                 renderMessage(messageObject);
                 socket.emit('sendMessage', messageObject);
+                name = messageObject.author
             }
+            console.log('hdfghfd', name )
         });
         
 
-
+        console.log('hdfghfd', )
 
         const page = document.querySelector('.principal')
         const chat = document.querySelector('.chat')
         const btn = document.querySelector('.btnUser')
-
+        
 
         btn.addEventListener('click', ()=>{
             page.classList.add('active');
             chat.classList.add('active');
         })
+
+        
+
+       
     </script>
 </body>
 </html>
